@@ -1,0 +1,9 @@
+# Render blueprint: New > Blueprint, pick this repo, and it creates the relay.
+services:
+  - type: web
+    name: slopio-relay
+    runtime: python
+    plan: free            # sleeps after 15 min idle (about a minute to wake); "starter" stays on
+    buildCommand: pip install -r requirements.txt
+    startCommand: python relay.py
+    healthCheckPath: /
